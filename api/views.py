@@ -3,6 +3,7 @@ import json
 from turtle import title
 from django.http import JsonResponse
 from products.models import Product
+from django.forms.models import model_to_dict
 
 
 # Create your views here.
@@ -35,9 +36,15 @@ def products(request, *args, **kwargs):
     data = {}
 
     if product_model:
-        data['id'] = product_model.id
-        data['title'] = product_model.title
-        data['context'] = product_model.content
-        data['price'] = product_model.price
+        '''Doing the same thing as below in a better way'''
+        # data['id'] = product_model.id
+        # data['title'] = product_model.title
+        # data['context'] = product_model.content
+        # data['price'] = product_model.price
+
+        # import model_to_dict
+        data = model_to_dict(product_model)  # return full model
+        # return specific fields
+        data = model_to_dict(product_model, fields=['title', 'price'])
 
     return JsonResponse(data)

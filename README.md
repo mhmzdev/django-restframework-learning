@@ -23,3 +23,6 @@ I've put all the files in sequence in the branches while I'm learning to use dja
 This will actually let's the django knows there's a new model to look for now:
 - `python manage.py makemigration`
 - `python manage.py migrate`
+
+### 5th - Converting Model instance to python dict
+- import `model_to_dict`
