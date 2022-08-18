@@ -14,3 +14,12 @@ I've put all the files in sequence in the branches while I'm learning to use dja
 - Sending Json data from client side to server and handling it.
 - More like we send `body` in a `POST` request or `QueryParams`
 - Adding data like `headers` and `content_type`
+
+### 4th - Django Model as API response
+- Create a separate app `products`
+- Make a model/object class in `models.py`
+- Migrate the models for DB
+
+This will actually let's the django knows there's a new model to look for now:
+- `python manage.py makemigration`
+- `python manage.py migrate`
