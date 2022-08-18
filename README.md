@@ -26,3 +26,5 @@ This will actually let's the django knows there's a new model to look for now:
 
 ### 5th - Converting Model instance to python dict
 - import `model_to_dict`
+
+### 6th - Converting api view to djangon rest framework view

@@ -1,9 +1,10 @@
+import imp
 from django.urls import path
 
-from .views import home
-from .views import products
+from api.views import *
 
 urlpatterns = [
     path('', home),
-    path('product/', products)
+    path('product/', products),
+    path('drf/', drf_response)
 ]

@@ -2,6 +2,11 @@ import imp
 import json
 from turtle import title
 from django.http import JsonResponse
+
+# for DRF API view
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
+
 from products.models import Product
 from django.forms.models import model_to_dict
 
@@ -48,3 +53,16 @@ def products(request, *args, **kwargs):
         data = model_to_dict(product_model, fields=['title', 'price'])
 
     return JsonResponse(data)
+
+
+@api_view(['GET'])
+def drf_response(request, *args, **kwargs):
+    product_model = Product(
+        title='Hello Django!!', content='This is Django REST Framework API VIEW', price=10.12)
+
+    data = {}
+
+    if product_model:
+        data = model_to_dict(product_model)
+
+    return Response(data)
